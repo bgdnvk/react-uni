@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.leaflet-container {
+/* .leaflet-container {
   height: 600px;
   width: 100%;
 }
@@ -20,4 +20,4 @@ code {
 .leaflet-div-icon {
   background: transparent;
   border: none;
-}
+} */
