@@ -56,8 +56,9 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import MapLeaflet from "./MapLeaflet";
-import "./styles.css";
+// import MapLeaflet from "./scripts/MapLeaflet.js";
+import MapLeaflet from "./scripts/MapLeaflet.js";
+import "./styles/styles.css";
 import "leaflet/dist/leaflet.css";
 
 function App() {
