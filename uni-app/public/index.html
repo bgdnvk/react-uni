@@ -9,7 +9,7 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -24,14 +24,112 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
-
+    <title>Uni App2</title>
+    <!-- LEAFLET-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+
+
+  <!-- Google Material Design-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+<!--CSS/STYLES -->
+<link rel="stylesheet" href="styles/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="styles/filtros.css">
+
+
+   
 
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!--
+       Se usa navbar de Bootstrap para responsive design
+       https://getbootstrap.com/docs/4.5/components/navbar/
+     -->
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="https://github.com/bgdnvk/uned-msc-res-design1">Ver Github</a>
+    <!--
+      Se agrega el buton para toggle
+    -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--
+      El resto de opciones se rodea en un div para el colapso y apertura
+    -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#video">tomar foto</a>
+        </li>
+        <li class="nav-item">
+          <!-- para no tener visible el input en la página
+          y usar los botones simplement se captura el click desde aquí-->
+          <a class="nav-link" href="#"
+          onclick="document.getElementById('captureFile').click();"
+          >subir foto
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="deletePictures()">borrar fotos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#find-me">localizame</a>
+        </li>    
+        <!--
+          Se agrega otro menú dropdown para estilos
+        -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Filtros
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" onclick="sepia()" href="#">Sepia</a>
+            <a class="dropdown-item" onclick="saturate()" href="#">Saturar</a>
+            <a class="dropdown-item" onclick="contrast()" href="#">Contraste</a>
+            <a class="dropdown-item" onclick="blurr()" href="#">Blurr</a>
+            <a class="dropdown-item" onclick="clearFilters()" href="#">Borrar Filtros</a>
+
+          </div>
+        </li>
+      </ul>
+    </div>  
+  </nav>
+  <input type="file" accept="image/*" id="captureFile" style ="display:none">
+  
+  <img src="" id="pictureUploaded" class="img-fluid" alt="Sube o Captura una imagen!" style ="display:none">
+
+  <div id="container" > 
+    <div id="gallery" class="slideshow-container">
+      <!-- https://stackoverflow.com/a/42374038 -->
+      <img id="imagenGaleria"  src="imgs/muestra.jpg" 
+      class ="img-fluid" alt="Imagen mostrada en la galeria"> 
+      <a class="prev d-flex " onclick="prevSlide()">&#10094;</a>
+      <a class="next d-flex " onclick="nextSlide()">&#10095;</a>
+      <p id="imageName" class="galeria-centro">nombre de la imagen</p>
+
+      <i class="material-icons galeria-centro" id="add" >add</i>
+      <i class="material-icons galeria-centro" id="remove" >remove</i>
+
+
+    </div>
+    <div id="galeriaThumb" class="container-galeria"></div>
+
+
+    <p id="cam-text">Captura CAM</p>
+    <video id="video" width="640" height="480" autoplay></video>
+     <button id="snap">Tomar Foto</button>
+     <p id="canvas-text">Imagen Previa CAM</p>
+     <canvas id="canvas" width="640" height="480"></canvas>
+     <button id="save-picture" style="display: none;">Guardar Foto</button>
+     <img id="saved-canvas" src="" alt="image from canvas" style="display: none;">
+
+  </div>
+
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -44,7 +142,12 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 
-   
+     <!--JS/SCRIPTS-->
+    <script src="scripts/getFiles.js"></script>
+    <script src="scripts/camera.js"></script>
+     <script src="scripts/filters.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   </body>
 </html>

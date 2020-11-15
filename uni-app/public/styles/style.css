@@ -1,0 +1,92 @@
+/* contener despuúes de nav */
+  #container{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  #imageName{
+    text-shadow: 2px 5px 2px white;
+  }
+/* contenedor galeria */
+  .slideshow-container {
+    position: relative;
+    margin: auto;
+    width: 100%;
+  }
+
+/* TODO: cambiar */
+  .container-galeria{
+    /* display: flex; */
+    /* flex-direction: column; */
+     /* justify-content: flex-start;  */
+     background-color: rgb(209, 198, 184);
+  }
+
+  .galeria-centro{
+    position: absolute;
+  }
+
+  p.galeria-centro{
+    top:10%;
+    left: 45%;
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0)
+    
+    
+  }
+ 
+  #add.galeria-centro{
+    top:80%;
+    left: 50%;
+    font-size: 3rem;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    text-shadow: 3px 3px 2px #ffffff;
+
+  }
+  #remove.galeria-centro{
+    top:80%;
+    left: 75%;
+    font-size: 3.5rem;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    text-shadow: 3px 3px 2px #ffffff;
+
+  }
+  #add:hover, #remove:hover{
+    color: rgb(185, 155, 57);
+  }
+  
+
+  /* Next & previous buttons */
+  .prev, .next {
+    position: absolute;
+    top:66%;
+    padding: 1%;
+    font-size: 200%;
+    cursor: pointer;
+    color: rgb(219, 179, 0);
+    font-weight: bold;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(133, 149, 224, 0.8);
+  }
+
+  img{
+    width: 100%;
+  }
+  
+  #imagenGaleria{
+    max-height: 500px;
+  }
+
